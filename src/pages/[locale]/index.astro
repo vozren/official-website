@@ -1,0 +1,151 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { copy, locales, type Locale } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const t = copy[locale];
+const notes = (
+  await getCollection('notes', ({ data }) => data.locale === locale)
+).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout locale={locale}>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="shell hero-inner">
+      <div class="hero-main">
+        <p class="eyebrow"><span class="signal-dot"></span>{t.heroEyebrow}</p>
+        <h1 id="hero-title" class="hero-title">
+          {
+            t.heroTitle
+              .split('\n')
+              .map((line, index) => (
+                <span class={index === 1 ? 'accent-line' : undefined}>
+                  {line}
+                </span>
+              ))
+          }
+        </h1>
+        <p class="hero-lead">{t.heroLead}</p>
+        <div class="hero-actions">
+          <a class="button-primary" href="#about"
+            >{t.discover}<span aria-hidden="true">↗</span></a
+          >
+          <a class="text-link" href="mailto:hi@vozren.com"
+            >{t.contact}<span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <span class="hero-index">V / 001</span>
+        <p>{t.heroAside}</p>
+        <a
+          href="#about"
+          class="scroll-cue"
+          aria-label={t.discover}
+          title={t.discover}>↓</a
+        >
+      </div>
+    </div>
+    <div class="hero-rule" aria-hidden="true"></div>
+  </section>
+
+  <section id="about" class="section about-section">
+    <div class="shell section-grid">
+      <p class="section-kicker">{t.aboutKicker}</p>
+      <div class="section-content">
+        <h2 class="section-title">
+          {t.aboutTitle.split('\n').map((line) => <span>{line}</span>)}
+        </h2>
+        <p class="section-intro">{t.aboutBody}</p>
+        <div class="purpose-grid">
+          <div class="purpose-item">
+            <span class="purpose-mark">↗</span><p class="small-label">
+              {t.missionLabel}
+            </p><h3>{t.mission}</h3>
+          </div>
+          <div class="purpose-item">
+            <span class="purpose-mark">◎</span><p class="small-label">
+              {t.visionLabel}
+            </p><h3>{t.vision}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="values" class="section values-section">
+    <div class="shell section-grid">
+      <p class="section-kicker">{t.valuesKicker}</p>
+      <div class="section-content">
+        <h2 class="section-title">
+          {t.valuesTitle.split('\n').map((line) => <span>{line}</span>)}
+        </h2>
+        <div class="values-list">
+          {
+            t.values.map((value) => (
+              <div class="value-row">
+                <>
+                  <span class="value-number">{value.number}</span>
+                  <h3>{value.title}</h3>
+                  <span class="value-english">{value.english}</span>
+                  <p>{value.text}</p>
+                </>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section notes-section">
+    <div class="shell section-grid">
+      <p class="section-kicker">{t.notesKicker}</p>
+      <div class="section-content">
+        <h2 class="section-title">{t.notesTitle}</h2>
+        <p class="section-intro">{t.notesIntro}</p>
+        <div class="notes-list">
+          {
+            notes.map((note) => (
+              <a
+                class="note-row"
+                href={`/${locale}/notes/${note.id.split('/').slice(1).join('/')}/`}
+              >
+                <>
+                  <span class="small-label">VOZREN / NOTE</span>
+                  <span class="note-title">{note.data.title}</span>
+                  <span class="note-arrow" aria-label={t.readMore}>
+                    ↗
+                  </span>
+                </>
+              </a>
+            ))
+          }
+        </div>
+        <a class="underlined-link" href={`/${locale}/notes/`}
+          >{t.allNotes}<span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="shell contact-inner">
+      <p class="section-kicker">{t.contactKicker}</p>
+      <div>
+        <h2>
+          {t.contactTitle.split('\n').map((line) => <span>{line}</span>)}
+        </h2><p>{t.contactBody}</p><a
+          href="mailto:hi@vozren.com"
+          class="contact-link"
+          >hi@vozren.com <span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </div>
+  </section>
+</BaseLayout>

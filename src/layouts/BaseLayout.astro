@@ -1,0 +1,197 @@
+---
+import '../styles/global.css';
+import { copy, type Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+  title?: string;
+  description?: string;
+  alternatePath?: string;
+}
+
+const { locale, title, description, alternatePath } = Astro.props;
+const t = copy[locale];
+const other = locale === 'zh' ? 'en' : 'zh';
+const path = Astro.url.pathname;
+const alternate = alternatePath ?? path.replace(`/${locale}/`, `/${other}/`);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const asset = (name: string) => `${base}/assets/logos/${name}`;
+const pageTitle = title ? `${title} | ${t.brand}` : `${t.brand} | ${t.footer}`;
+const pageDescription = description ?? t.heroLead;
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={pageDescription} />
+    <meta name="theme-color" content="#f5f7f5" />
+    <link rel="icon" href={asset('favicon.ico')} sizes="any" />
+    <link rel="icon" href={asset('favicon.svg')} type="image/svg+xml" />
+    <link rel="canonical" href={new URL(path, Astro.site)} />
+    <link rel="alternate" hreflang={locale} href={new URL(path, Astro.site)} />
+    <link
+      rel="alternate"
+      hreflang={other}
+      href={new URL(alternate, Astro.site)}
+    />
+    <title>{pageTitle}</title>
+    <script is:inline>
+      try {
+        const saved = localStorage.getItem('vozren-theme');
+        document.documentElement.dataset.theme =
+          saved ||
+          (matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light');
+      } catch {
+        /* Follow system preference when storage is unavailable. */
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main"
+      >{locale === 'zh' ? '跳至内容' : 'Skip to content'}</a
+    >
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href={`/${locale}/`} aria-label={t.brand}>
+          <img
+            class="logo-light"
+            src={asset(
+              locale === 'zh' ? 'vozren-logo-zh.svg' : 'vozren-logo.svg',
+            )}
+            alt={t.brand}
+            width="1400"
+            height="360"
+          />
+          <img
+            class="logo-dark"
+            src={asset(
+              locale === 'zh'
+                ? 'vozren-logo-zh-dark.svg'
+                : 'vozren-logo-dark.svg',
+            )}
+            alt=""
+            width="1400"
+            height="360"
+          />
+        </a>
+        <nav
+          class="main-nav"
+          aria-label={locale === 'zh' ? '主导航' : 'Main navigation'}
+        >
+          <a href={`/${locale}/#about`}>{t.nav.about}</a>
+          <a href={`/${locale}/#values`}>{t.nav.values}</a>
+          <a href={`/${locale}/notes/`}>{t.nav.notes}</a>
+          <a href={`/${locale}/#contact`}>{t.nav.contact}</a>
+        </nav>
+        <div class="header-actions">
+          <a
+            class="language-link"
+            href={alternate}
+            lang={other}
+            hreflang={other}>{t.language}</a
+          >
+          <button
+            class="theme-button"
+            type="button"
+            data-theme-toggle
+            aria-label={t.theme}
+            title={t.theme}
+          >
+            <svg
+              class="sun-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              ><circle cx="12" cy="12" r="4"></circle><path
+                d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+              ></path></svg
+            >
+            <svg
+              class="moon-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              ><path
+                d="M20.5 14.1A8.5 8.5 0 0 1 9.9 3.5 8.5 8.5 0 1 0 20.5 14.1Z"
+              ></path></svg
+            >
+          </button>
+          <button
+            class="menu-button"
+            type="button"
+            data-menu-toggle
+            aria-label={locale === 'zh' ? '打开菜单' : 'Open menu'}
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+          >
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <nav
+        id="mobile-nav"
+        class="mobile-nav"
+        aria-label={locale === 'zh' ? '移动导航' : 'Mobile navigation'}
+        hidden
+      >
+        <a href={`/${locale}/#about`}>{t.nav.about}</a>
+        <a href={`/${locale}/#values`}>{t.nav.values}</a>
+        <a href={`/${locale}/notes/`}>{t.nav.notes}</a>
+        <a href={`/${locale}/#contact`}>{t.nav.contact}</a>
+      </nav>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <div><strong>VOZREN</strong><p>{t.footer}</p></div>
+        <div class="footer-meta">
+          <a href="mailto:hi@vozren.com">hi@vozren.com</a><span
+            >© {new Date().getFullYear()} Vozren. {t.rights}.</span
+          >
+        </div>
+      </div>
+    </footer>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>(
+        '[data-theme-toggle]',
+      );
+      toggle?.addEventListener('click', () => {
+        const next =
+          document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        try {
+          localStorage.setItem('vozren-theme', next);
+        } catch {
+          /* Theme still works for this page. */
+        }
+      });
+
+      const menu =
+        document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+      const nav = document.querySelector<HTMLElement>('#mobile-nav');
+      menu?.addEventListener('click', () => {
+        if (!nav) return;
+        nav.hidden = !nav.hidden;
+        menu.setAttribute('aria-expanded', String(!nav.hidden));
+      });
+      nav?.querySelectorAll('a').forEach((link) =>
+        link.addEventListener('click', () => {
+          nav.hidden = true;
+          menu?.setAttribute('aria-expanded', 'false');
+        }),
+      );
+    </script>
+  </body>
+</html>

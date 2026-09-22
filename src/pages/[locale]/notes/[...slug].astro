@@ -1,0 +1,50 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { copy, type Locale } from '../../../lib/i18n';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes');
+  return notes.map((note) => ({
+    params: {
+      locale: note.data.locale,
+      slug: note.id.split('/').slice(1).join('/'),
+    },
+    props: { note },
+  }));
+}
+
+const { note } = Astro.props;
+const locale = note.data.locale as Locale;
+const t = copy[locale];
+const { Content } = await render(note);
+const other = locale === 'zh' ? 'en' : 'zh';
+const sibling = (await getCollection('notes')).find(
+  (entry) =>
+    entry.data.locale === other &&
+    entry.id.split('/').slice(1).join('/') === Astro.params.slug,
+);
+const alternatePath = sibling
+  ? `/${other}/notes/${Astro.params.slug}/`
+  : `/${other}/notes/`;
+---
+
+<BaseLayout
+  locale={locale}
+  title={note.data.title}
+  description={note.data.description}
+  alternatePath={alternatePath}
+>
+  <article class="article shell">
+    <a class="back-link" href={`/${locale}/notes/`}>← {t.back}</a>
+    <header>
+      <p class="section-kicker">
+        VOZREN / NOTE {String(note.data.order).padStart(2, '0')}
+      </p><h1>{note.data.title}</h1><p class="article-deck">
+        {note.data.description}
+      </p>
+    </header>
+    <div class="prose"><Content /></div>
+    <a class="back-link article-back" href={`/${locale}/notes/`}>← {t.back}</a>
+  </article>
+</BaseLayout>

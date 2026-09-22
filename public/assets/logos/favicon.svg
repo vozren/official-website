@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" fill="none" role="img" aria-labelledby="logo-title logo-description">
+  <title id="logo-title">Vozren V/Z icon</title>
+  <desc id="logo-description">Vozren V/Z icon without a company name, for light backgrounds. Transparent vector artwork.</desc>
+  <defs>
+    <linearGradient id="monogram-ribbon" gradientUnits="userSpaceOnUse" x1="678" y1="800" x2="822" y2="800">
+      <stop stop-color="#353b50" />
+      <stop offset=".27" stop-color="#314c78" />
+      <stop offset=".54" stop-color="#2869c2" />
+      <stop offset="1" stop-color="#2f77d3" />
+    </linearGradient>
+    <linearGradient id="lower-trace" gradientUnits="userSpaceOnUse" x1="717" y1="870" x2="797" y2="858">
+      <stop stop-color="#26589d" />
+      <stop offset=".4" stop-color="#26436a" />
+      <stop offset="1" stop-color="#2a303d" />
+    </linearGradient>
+    <radialGradient id="blue-node" cx=".38" cy=".36" r=".7">
+      <stop stop-color="#69adf0" />
+      <stop offset=".48" stop-color="#347fda" />
+      <stop offset="1" stop-color="#2865b7" />
+    </radialGradient>
+    <mask id="open-terminals" maskUnits="userSpaceOnUse" x="0" y="0" width="1536" height="1536" style="mask-type:luminance">
+      <rect width="1536" height="1536" fill="white" />
+      <g fill="black">
+        <circle cx="1047.5" cy="340" r="3.35" />
+        <circle cx="869.5" cy="548" r="4.25" />
+        <circle cx="806.5" cy="410" r="2.8" />
+        <circle cx="238" cy="980" r="4.7" />
+        <circle cx="468.5" cy="1080" r="4.85" />
+        <circle cx="646.5" cy="978.5" r="4.8" />
+        <circle cx="789" cy="1144" r="4.9" />
+        <circle cx="841.5" cy="980" r="5.1" />
+      </g>
+    </mask>
+  </defs>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(40 48) translate(-498 -334)">
+      <g id="monogram" mask="url(#open-terminals)">
+        <g stroke="#282b34">
+          <path d="M1047.5 340 816 813C797 852 771 871 716 872" stroke-width="1.8" />
+          <path d="M1037.5 432 832.5 844" stroke-width="1.65" />
+          <path d="M893 600 763 846" stroke-width="1.45" />
+          <path d="M951 475.5H1016" stroke-width="1.7" />
+        </g>
+        <path d="M500 484 572.5 485 724 784.5 724 788 568 495H520L695 853C701 869 722 869 733 853L826 683 833 687 740 858C730 877 701 880 687 858Z" fill="url(#monogram-ribbon)" stroke="#232938" stroke-width="1.55" />
+        <path d="M724 788 790 675C812 645 835 618 851 584L883 522C897 493 911 486 933.5 490" stroke="#292d38" stroke-width="2.65" />
+        <path d="M582 625C596 627 602 630 608 642L665 750Q669 757 660 765L652 772" stroke="#273040" stroke-width="3" />
+        <path d="M949 460 829 685" stroke="#2b3445" stroke-width="2.9" />
+        <path d="M810 410C850 408 891 409 935 409C957 409 981 403 970 426C965 436 956 449 949 460" stroke="#2b3342" stroke-width="2.1" />
+        <path d="M717 870C744 871 764 858 791 858C826 858 869 861 913 858" stroke="url(#lower-trace)" stroke-width="1.9" />
+        <circle cx="829.5" cy="685" r="7.05" fill="url(#blue-node)" stroke="#2d71c5" stroke-width=".85" />
+        <circle cx="893" cy="600" r="1.8" fill="#272d37" />
+        <circle cx="1037.5" cy="432" r="2.15" fill="#252c34" />
+      </g>
+      <g id="icon-terminals" stroke="#2b303a">
+        <circle cx="1047.5" cy="340" r="4.7" stroke-width="2" />
+        <circle cx="869.5" cy="548" r="5.65" stroke-width="2.25" />
+        <circle cx="806.5" cy="410" r="3.8" stroke-width="1.35" />
+      </g>
+    </g>
+  </g>
+</svg>

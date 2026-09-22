@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="360" viewBox="0 0 1400 360" fill="none" role="img" aria-labelledby="logo-title logo-description">
+  <title id="logo-title">Vozren</title>
+  <desc id="logo-description">Horizontal Vozren logo for dark backgrounds: V/Z icon on the left, English wordmark on the right. Transparent background; vector paths only.</desc>
+  <defs>
+    <linearGradient id="monogram-ribbon" gradientUnits="userSpaceOnUse" x1="678" y1="800" x2="822" y2="800">
+      <stop stop-color="#e3ecf8" />
+      <stop offset=".27" stop-color="#b3cef0" />
+      <stop offset=".54" stop-color="#66a2f2" />
+      <stop offset="1" stop-color="#64a5f6" />
+    </linearGradient>
+    <linearGradient id="lower-trace" gradientUnits="userSpaceOnUse" x1="717" y1="870" x2="797" y2="858">
+      <stop stop-color="#83b4f4" />
+      <stop offset=".4" stop-color="#b3c9e7" />
+      <stop offset="1" stop-color="#d5e1f1" />
+    </linearGradient>
+    <radialGradient id="blue-node" cx=".38" cy=".36" r=".7">
+      <stop stop-color="#a3d1ff" />
+      <stop offset=".48" stop-color="#61a5fa" />
+      <stop offset="1" stop-color="#4088e3" />
+    </radialGradient>
+    <radialGradient id="o-highlight" gradientUnits="userSpaceOnUse" cx="517" cy="978" r="15">
+      <stop stop-color="#c0e1ff" />
+      <stop offset=".25" stop-color="#71b2ff" />
+      <stop offset=".7" stop-color="#c8d9f0" />
+      <stop offset="1" stop-color="#edf4ff" />
+    </radialGradient>
+    <linearGradient id="o-lower-blue" gradientUnits="userSpaceOnUse" x1="517" y1="1143" x2="517" y2="1115">
+      <stop stop-color="#76b4ff" />
+      <stop offset=".55" stop-color="#83b4ef" stop-opacity=".75" />
+      <stop offset="1" stop-color="#e3edfb" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="z-blue" gradientUnits="userSpaceOnUse" x1="645" y1="1135" x2="742" y2="1175">
+      <stop stop-color="#64a6fa" />
+      <stop offset=".32" stop-color="#8cb9f3" />
+      <stop offset=".65" stop-color="#c6d9f4" />
+      <stop offset="1" stop-color="#f0f6ff" />
+    </linearGradient>
+    <mask id="open-terminals" maskUnits="userSpaceOnUse" x="0" y="0" width="1536" height="1536" style="mask-type:luminance">
+      <rect width="1536" height="1536" fill="white" />
+      <g fill="black">
+        <circle cx="1047.5" cy="340" r="3.35" />
+        <circle cx="869.5" cy="548" r="4.25" />
+        <circle cx="806.5" cy="410" r="2.8" />
+        <circle cx="238" cy="980" r="4.7" />
+        <circle cx="468.5" cy="1080" r="4.85" />
+        <circle cx="646.5" cy="978.5" r="4.8" />
+        <circle cx="789" cy="1144" r="4.9" />
+        <circle cx="841.5" cy="980" r="5.1" />
+      </g>
+    </mask>
+  </defs>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(40 44) scale(.5) translate(-498 -334)">
+      <g id="monogram" mask="url(#open-terminals)">
+        <g stroke="#c8d5e8">
+          <path d="M1047.5 340 816 813C797 852 771 871 716 872" stroke-width="1.8" />
+          <path d="M1037.5 432 832.5 844" stroke-width="1.65" />
+          <path d="M893 600 763 846" stroke-width="1.45" />
+          <path d="M951 475.5H1016" stroke-width="1.7" />
+        </g>
+        <path d="M500 484 572.5 485 724 784.5 724 788 568 495H520L695 853C701 869 722 869 733 853L826 683 833 687 740 858C730 877 701 880 687 858Z" fill="url(#monogram-ribbon)" stroke="#b5c9e5" stroke-width="1.55" />
+        <path d="M724 788 790 675C812 645 835 618 851 584L883 522C897 493 911 486 933.5 490" stroke="#d8e5f6" stroke-width="2.65" />
+        <path d="M582 625C596 627 602 630 608 642L665 750Q669 757 660 765L652 772" stroke="#cdddf1" stroke-width="3" />
+        <path d="M949 460 829 685" stroke="#dae7f8" stroke-width="2.9" />
+        <path d="M810 410C850 408 891 409 935 409C957 409 981 403 970 426C965 436 956 449 949 460" stroke="#cddcf0" stroke-width="2.1" />
+        <path d="M717 870C744 871 764 858 791 858C826 858 869 861 913 858" stroke="url(#lower-trace)" stroke-width="1.9" />
+        <circle cx="829.5" cy="685" r="7.05" fill="url(#blue-node)" stroke="#5292e8" stroke-width=".85" />
+        <circle cx="893" cy="600" r="1.8" fill="#d8e5f6" />
+        <circle cx="1037.5" cy="432" r="2.15" fill="#d8e5f6" />
+      </g>
+      <g id="icon-terminals" stroke="#dce8f7">
+        <circle cx="1047.5" cy="340" r="4.7" stroke-width="2" />
+        <circle cx="869.5" cy="548" r="5.65" stroke-width="2.25" />
+        <circle cx="806.5" cy="410" r="3.8" stroke-width="1.35" />
+      </g>
+    </g>
+    <g transform="translate(380 100) scale(.9) translate(-232 -972)">
+      <g id="wordmark" mask="url(#open-terminals)">
+        <g id="letter-v" stroke="#e4edf9">
+          <path d="M238 983 307 1132C311 1141 316 1145 323 1143C330 1143 335 1138 338 1129L349 1100" stroke-width="5.2" />
+          <path d="M405 979 364 1066" stroke-width="7.3" />
+          <path d="M252 979C261 979 264 983 269 995L314 1099C320 1111 325 1112 332 1093L341 1076C347 1061 352 1064 364 1069" stroke-width="1.5" />
+          <path d="M349 1100C362 1106 371 1095 377 1085Q383 1078 393 1079L468.5 1080" stroke-width="1.7" />
+        </g>
+        <g id="letter-o">
+          <path d="M437 1066C431 1018 471 978 517 978C563 978 599.5 1013 599.5 1056C599.5 1104 560 1143 518 1143" stroke="#cad9ed" stroke-width="7.1" />
+          <path d="M437 1066C431 1018 471 978 517 978C563 978 599.5 1013 599.5 1056C599.5 1104 560 1143 518 1143" stroke="url(#o-highlight)" stroke-width="3.5" />
+          <path d="M437 1066C431 1018 471 978 517 978C563 978 599.5 1013 599.5 1056C599.5 1104 560 1143 518 1143" stroke="url(#o-lower-blue)" stroke-width="5.1" />
+          <path d="M438 1082C447 1116 469 1139 507.5 1143.5" stroke="#d5e2f3" stroke-width="2.65" />
+          <path d="M468.5 1084C469 1111 493 1129 520 1129" stroke="#cad9ed" stroke-width="1.65" />
+          <circle cx="517.5" cy="1143" r="6.5" fill="url(#blue-node)" stroke="#619deb" stroke-width=".9" />
+        </g>
+        <g id="letter-z">
+          <path d="M646.5 978.5 680 978.5" stroke="#d5e2f3" stroke-width="1.7" />
+          <path d="M680 978.5H782Q787 978.5 782 985L728 1052" stroke="#d8e5f6" stroke-width="6.7" />
+          <path d="M680 978.2H782Q784 978.2 782 982L728 1052" stroke="#f0f6ff" stroke-width="2.8" />
+          <path d="M648 998.5H730Q740 999 735 1010L691 1066" stroke="#d5e2f3" stroke-width="1.55" />
+          <path d="M691 1066 636 1140Q633 1143 640 1143H755" stroke="#6da4ea" stroke-width="7.15" />
+          <path d="M691 1066 636 1140Q633 1143 640 1143H755" stroke="url(#z-blue)" stroke-width="5.5" />
+          <path d="M728 1054 685 1114Q679 1126 692 1126H779Q796 1126 796 1144" stroke="#d5e2f3" stroke-width="1.5" />
+          <path d="M755 1143 789 1144H798" stroke="#d5e2f3" stroke-width="1.65" />
+        </g>
+        <g id="letter-r" stroke="#dce8f7" stroke-width="1.7">
+          <path d="M841.5 980V1109C841.5 1132 826 1145 806 1145H797" />
+          <path d="M841.5 1042C855 1003 889 977 922 977H940" />
+          <path d="M797 1145H832C851 1145 863 1132 863 1112V1054C863 1022 881 998.5 906 998.5H941" />
+          <circle cx="940" cy="977" r="2.95" fill="#edf4ff" stroke-width=".7" />
+          <circle cx="863" cy="1054" r="4.65" fill="url(#blue-node)" stroke="#68a5f4" stroke-width=".55" />
+        </g>
+        <g id="letter-e">
+          <path d="M970 1055H1116C1120 1055 1118 1049 1117 1042C1110 1004 1080 977 1042 977C999 977 965 1013 965 1056C965 1105 999 1143 1042 1143C1069 1143 1095 1127 1110 1107" stroke="#d5e2f3" stroke-width="7.1" />
+          <path d="M970 1055H1116C1120 1055 1118 1049 1117 1042C1110 1004 1080 977 1042 977C999 977 965 1013 965 1056C965 1105 999 1143 1042 1143C1069 1143 1095 1127 1110 1107" stroke="#f0f6ff" stroke-width="3.1" />
+        </g>
+        <g id="letter-n">
+          <path d="M1171.5 1142V979M1172 1031C1185 1000 1213 977 1242 977C1274 977 1307 1003 1307 1043V1142" stroke="#d5e2f3" stroke-width="7.5" />
+          <path d="M1171.5 1142V979M1172 1031C1185 1000 1213 977 1242 977C1274 977 1307 1003 1307 1043V1142" stroke="#f0f6ff" stroke-width="3.2" />
+        </g>
+      </g>
+      <g id="wordmark-terminals" stroke="#dce8f7">
+        <circle cx="238" cy="980" r="6.35" stroke-width="3.1" />
+        <circle cx="468.5" cy="1080" r="5.8" stroke-width="2" />
+        <circle cx="646.5" cy="978.5" r="5.8" stroke-width="1.9" />
+        <circle cx="789" cy="1144" r="5.95" stroke-width="1.95" />
+        <circle cx="841.5" cy="980" r="6" stroke-width="1.75" />
+      </g>
+    </g>
+  </g>
+</svg>
